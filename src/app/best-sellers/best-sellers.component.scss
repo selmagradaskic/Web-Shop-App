@@ -1,0 +1,29 @@
+body {
+  padding: 10px;
+  display: block;
+}
+
+.sliders {
+  columns: 3;
+  width: 100%;
+  display: block;
+  padding-bottom: 90px;
+  
+}
+
+.images {
+  width: 100%;
+}
+
+img {
+  width: 80%;
+  border-radius: 10%;
+  border: 5px solid #555;
+  border-color: rgb(123, 122, 124);;
+}
+
+img:hover {
+width: 85%;
+border-color: bisque;
+}
+

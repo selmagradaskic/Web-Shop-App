@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<div class="menu">
+    <div><img class="menuImages" src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/7911286/computer-icon-md.png"><p>Computer View</p></div>
+    <div><img class="menuImages" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5GnAZ7G3q-ZljmUnjHWek_k01M3COL_8hIl_B-M1iJ6QLDyngs81kN5aBeaY81Kleprg&usqp=CAU"><p>Mobile View</p></div>
+</div>    
+    <div class="title">
+<h1>Web Shop</h1>
+</div>
+
+<body>
+<app-best-sellers [products]="products"></app-best-sellers>
+<div class="container">
+<ul *ngFor="let product of products">
+    <div class="oneProduct">
+    <li *ngIf="products">
+ <h2> {{product.title}} </h2>
+  <img src="{{product.thumbnail}}" alt="Picture" class="images">
+ <p class="description"> {{product.description}} </p>
+ <h3>{{product.price}}$</h3>
+ <button>Buy</button>
+ <button>Check Info</button>
+    </li>
+    </div>
+</ul>
+</div>
+</body>
+</html>

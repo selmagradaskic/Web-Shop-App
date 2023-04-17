@@ -1,0 +1,17 @@
+<div class="bestSellers">
+    <h1>Best Sellers</h1>
+
+    
+        <div class="sliders">
+        <ul *ngFor="let product of products" >
+            <li *ngIf="product.rating > 4.5">
+                <img src="{{product.thumbnail}}">
+               <h2>{{product.title}}</h2> 
+                <h3>{{product.rating}}</h3>
+            </li>
+        </ul>
+        </div>
+</div>
+      
+      
+
