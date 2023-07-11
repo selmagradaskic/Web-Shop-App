@@ -28,9 +28,6 @@ export class AppComponent implements OnInit {
   ) {
   }
   title = 'myApp';
-  curPage!: number;
-  pageSize!: number;
-  columnNumber = false;
 
 products: Product[] = [];
 

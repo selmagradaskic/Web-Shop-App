@@ -1,16 +1,36 @@
 <div class="bestSellers">
     <h1>Best Sellers</h1>
-
     
-        <div class="sliders">
-        <ul *ngFor="let product of products" >
+    
+        <div class="best-sellers">
+        <!-- <ul *ngFor="let product of products" hidden>
             <li *ngIf="product.rating > 4.5">
                 <img src="{{product.thumbnail}}">
                <h2>{{product.title}}</h2> 
                 <h3>{{product.rating}}</h3>
             </li>
-        </ul>
+        </ul> -->
+        <div class="slider">
+            <!-- <div *ngFor="let product of products" hidden>
+                <div *ngIf="product.rating > 4.5"> -->
+            <span id="slide-1"></span>
+            <span id="slide-2"></span>
+            <span id="slide-3"></span>
+            <div class="image-container">
+               <img src="{{products[0].thumbnail}}" class="slide"/>
+               <img src="{{products[1].thumbnail}}" class="slide"/>
+               <img src="{{products[2].thumbnail}}" class="slide"/>
+            </div>
+            <div class="buttons">
+              <a href="#slide-1">1</a>
+              <a href="#slide-2">2</a>
+              <a href="#slide-3">3</a>
+            </div>
         </div>
+            </div>
+        <!-- </div>
+        </div> -->
+        
 </div>
       
       

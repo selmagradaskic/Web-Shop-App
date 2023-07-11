@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../Product';
 
 @Component({
   selector: 'app-best-sellers',
@@ -7,7 +8,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 })
 export class BestSellersComponent {
   @Input() products: any;
-
-
+  
+  product: Product[] = [];
 
 }
