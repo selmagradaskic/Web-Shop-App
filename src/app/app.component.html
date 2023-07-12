@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html> 
+<html lang="en">
     <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fasthand&family=Pacifico&display=swap" rel="stylesheet">
-    </head>  
+      <title>Web App</title>
+    </head>
     <div class="title">
 <h1>Welcome to Shop&Go Web Shop</h1>
 </div>
 
 <body>
-    
+
 <app-best-sellers [products]="products"></app-best-sellers>
 <div class="container">
+  <div class="oneProduct">
 <ul *ngFor="let product of products">
-    <div class="oneProduct">
     <li *ngIf="products">
  <h2> {{product.title}} </h2>
   <img src="{{product.thumbnail}}" alt="Picture" class="images">
@@ -22,9 +23,10 @@
  <h3>{{product.price}}$</h3>
  <button>Buy</button>
  <button>Check Info</button>
+ <button>Review</button>
     </li>
-    </div>
 </ul>
+  </div>
 </div>
 
 
