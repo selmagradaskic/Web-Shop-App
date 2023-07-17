@@ -3,9 +3,11 @@
  */
 package web.shop.app
 
+import org.springframework.boot.test.context.SpringBootTest
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 
+@SpringBootTest
 class AppTest {
     @Test fun appHasAGreeting() {
         val classUnderTest = App()
