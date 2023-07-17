@@ -2,19 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { appService } from './appService';
+import { homePageService } from './home-page/home-page-service';
 import { BestSellersComponent } from './best-sellers/best-sellers.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BestSellersComponent
+    BestSellersComponent,
+    ReviewsComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [appService, HttpClient],
+  providers: [homePageService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

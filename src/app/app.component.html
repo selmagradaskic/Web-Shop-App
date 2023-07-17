@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fasthand&family=Pacifico&display=swap" rel="stylesheet">
-      <title>Web App</title>
-    </head>
-    <div class="title">
-<h1>Welcome to Shop&Go Web Shop</h1>
-</div>
-
-<body>
-
-<app-best-sellers [products]="products"></app-best-sellers>
-<div class="container">
-  <div class="oneProduct">
-<ul *ngFor="let product of products">
-    <li>
- <h2> {{product.title}} </h2>
-  <img src="{{product.thumbnail}}" alt="Picture" class="images">
- <p class="description"> {{product.description}} </p>
- <h3>{{product.price}}$</h3>
- <button>Buy</button>
- <button>Check Info</button>
- <button>Review</button>
-    </li>
-</ul>
-  </div>
-</div>
-
-
-</body>
-</html>
+ 
+ <nav>
+   <ul>
+     <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home Page</a></li>
+<!--      <li><a routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a></li>
+ -->   </ul>
+ </nav>
+ 
+ <!-- The routed views render in the <router-outlet>-->
+ <router-outlet></router-outlet>
+<!--  <app-home-page></app-home-page> -->
