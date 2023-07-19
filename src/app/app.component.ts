@@ -1,7 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { homePageService } from './home-page/home-page-service';
-import { Product } from './home-page/Product';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

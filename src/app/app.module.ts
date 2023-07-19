@@ -7,6 +7,7 @@ import { BestSellersComponent } from './best-sellers/best-sellers.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ReviewsService } from './reviews/reviews.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [homePageService, HttpClient],
+  providers: [homePageService, HttpClient, ReviewsService, HomePageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

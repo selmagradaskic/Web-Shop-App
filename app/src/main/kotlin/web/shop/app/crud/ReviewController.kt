@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/reviews")
+@CrossOrigin(exposedHeaders= ["Access-Control-Allow-Origin"])
 public class ReviewController (@Autowired val reviewRepository: ReviewRepository) {
   // standard constructors
 

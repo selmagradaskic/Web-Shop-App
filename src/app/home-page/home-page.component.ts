@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { homePageService } from './home-page-service';
-import { Router } from '@angular/router';
 import { Product } from './Product';
 
 @Component({
@@ -9,8 +8,8 @@ import { Product } from './Product';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  
-    [x: string]: any;
+
+    sendSelectedProduct = new EventEmitter<Product>();
     
       product: Product = {
         id: 0,
@@ -25,19 +24,35 @@ export class HomePageComponent implements OnInit {
         thumbnail: '',
         images: []
       };
+
+      @Output()
+      selectedProduct: Product = {
+        id: 0,
+        title: '',
+        description: '',
+        price: 0,
+        discountPercentage: 0,
+        rating: 0,
+        stock: 0,
+        brand: '',
+        category: '',
+        thumbnail: '',
+        images: []
+      };
     
       constructor(
-        private homePageService: homePageService,
-        private router: Router
+        private homePageService: homePageService
       ) {
       }
-      title = 'myApp';
+    
     
     products: Product[] = [];
     
+    
+    
+    
     ngOnInit() {
     this.fetchData();
-    
     }
     
     fetchData() {
@@ -53,8 +68,14 @@ export class HomePageComponent implements OnInit {
         return this.products;
     });
     }
-    
-    openNewPage(){
-      this.router.navigateByUrl('reviews.html');
-      }
+
+    selectedProducts(product: Product) {
+      this.selectedProduct = product;
+      this.sendSelectedProduct.emit(this.selectedProduct);
+      console.log(this.selectedProduct);
+    }
+
+ 
+
+
 }

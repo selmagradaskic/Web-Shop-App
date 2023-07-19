@@ -1,2 +1,13 @@
+<h1>Reviews</h1>
 
-<p>reviews works!</p>
+<h1>{{selectedProduct.title}}</h1>
+
+
+
+  
+
+
+<ul *ngFor="let review of reviews">
+    <li>{{review.author}}</li>
+    <li>{{review.review}}</li>
+</ul>
