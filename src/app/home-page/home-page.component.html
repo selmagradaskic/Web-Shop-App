@@ -15,7 +15,7 @@
 <app-best-sellers [products]="products"></app-best-sellers>
 <div class="container">
   <div class="oneProduct">
-<ul *ngFor="let product of products">
+<ul *ngFor="let product of products" >
     <li routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="selectedProducts(product)">
  <h2> {{product.title}} </h2>
   <img src="{{product.thumbnail}}" alt="Picture" class="images">

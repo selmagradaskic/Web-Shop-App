@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReviewsService } from './reviews.service';
 import { Review } from './Review';
 import { Product } from '../home-page/Product';
-import { HomePageComponent } from '../home-page/home-page.component';
+import { HomePageReviewsService } from '../home-page-reviews.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-reviews',
@@ -11,32 +12,37 @@ import { HomePageComponent } from '../home-page/home-page.component';
 })
 export class ReviewsComponent implements OnInit {
   
-  @Input() selectedProduct: Product = {
-    id: 0,
-    title: '',
-    description: '',
-    price: 0,
-    discountPercentage: 0,
-    rating: 0,
-    stock: 0,
-    brand: '',
-    category: '',
-    thumbnail: '',
-    images: []
+
+  receivedData = new class implements Product {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    stock: number;
+    brand: string;
+    category: string;
+    thumbnail: string;
+    images: string[];
+    
   };
+
+  subscription: Subscription;
   
   reviews: Review[] = [];
   
 
- 
-
   constructor(
     private reviewsService: ReviewsService,
-    private homePageComponent: HomePageComponent
-  ) {}
-
-  
-
+    private homePageReviewsService: HomePageReviewsService
+  ) {
+   this.subscription = this.homePageReviewsService.getData().subscribe((res) => {
+      console.log(res);
+      return this.receivedData = res;
+    });
+     
+  }
   ngOnInit() {
     this.getReviews();
   }
@@ -50,9 +56,6 @@ export class ReviewsComponent implements OnInit {
       });
   }
 
-  getSelectedProduct() {
-    this.selectedProduct = this.homePageComponent.selectedProduct;
-    return this.selectedProduct;
-  }
+  
 
 }

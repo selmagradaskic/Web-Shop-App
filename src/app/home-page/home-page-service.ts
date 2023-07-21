@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core'
 @Injectable(
   {providedIn: 'root'}
 )
-export class homePageService {
+export class HomePageService {
 
 constructor(
         private http: HttpClient

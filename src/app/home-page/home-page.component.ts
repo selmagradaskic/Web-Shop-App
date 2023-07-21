@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { homePageService } from './home-page-service';
+import { Component, OnInit } from '@angular/core';
+import { HomePageService } from './home-page-service';
 import { Product } from './Product';
+import { HomePageReviewsService } from '../home-page-reviews.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,8 +9,6 @@ import { Product } from './Product';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
-    sendSelectedProduct = new EventEmitter<Product>();
     
       product: Product = {
         id: 0,
@@ -24,24 +23,10 @@ export class HomePageComponent implements OnInit {
         thumbnail: '',
         images: []
       };
-
-      @Output()
-      selectedProduct: Product = {
-        id: 0,
-        title: '',
-        description: '',
-        price: 0,
-        discountPercentage: 0,
-        rating: 0,
-        stock: 0,
-        brand: '',
-        category: '',
-        thumbnail: '',
-        images: []
-      };
     
       constructor(
-        private homePageService: homePageService
+        private homePageService: HomePageService,
+        private homePageReviewsService: HomePageReviewsService
       ) {
       }
     
@@ -70,9 +55,7 @@ export class HomePageComponent implements OnInit {
     }
 
     selectedProducts(product: Product) {
-      this.selectedProduct = product;
-      this.sendSelectedProduct.emit(this.selectedProduct);
-      console.log(this.selectedProduct);
+       this.homePageReviewsService.sendData(product);
     }
 
  

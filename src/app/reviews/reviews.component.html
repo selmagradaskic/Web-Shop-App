@@ -1,9 +1,16 @@
 <h1>Reviews</h1>
 
-<h1>{{selectedProduct.title}}</h1>
 
 
-
+<div>
+  <h2>Received Product:</h2>
+  <p>Title: {{ receivedData.title }}</p>
+  <p>Description: {{ receivedData.description }}</p>
+  <!-- Add other properties as needed -->
+</div>
+<div *ngIf="!receivedData">
+  <p>No data received yet.</p>
+</div>
   
 
 
