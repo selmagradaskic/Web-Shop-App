@@ -20,8 +20,8 @@ public class ReviewController (@Autowired val reviewRepository: ReviewRepository
 
   @PostMapping("")
   fun createReview(@RequestBody review: Review): ResponseEntity<Review> {
-    val createdUser = reviewRepository.save(review)
-    return ResponseEntity(createdUser, HttpStatus.CREATED)
+    val createdReview = reviewRepository.save(review)
+    return ResponseEntity(createdReview, HttpStatus.CREATED)
   }
 
   @GetMapping("/{id}")

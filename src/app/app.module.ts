@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ReviewsService } from './reviews/reviews.service';
 import { HomePageReviewsService } from './home-page-reviews.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { HomePageReviewsService } from './home-page-reviews.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [HomePageService, ReviewsService, HomePageReviewsService],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import { Review } from './Review';
 import { Product } from '../home-page/Product';
 import { HomePageReviewsService } from '../home-page-reviews.service';
 import { Subscription } from 'rxjs';
-
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
@@ -31,20 +31,30 @@ export class ReviewsComponent implements OnInit {
   subscription: Subscription;
   
   reviews: Review[] = [];
-  
+  review: Review;
+  author: string;
+  registerForm: FormGroup;
+  submitted = false;
+  loginForm: FormGroup;
+  showForm = true;
+
+
 
   constructor(
     private reviewsService: ReviewsService,
-    private homePageReviewsService: HomePageReviewsService
+    private homePageReviewsService: HomePageReviewsService,
+    private fb: FormBuilder
   ) {
    this.subscription = this.homePageReviewsService.getData().subscribe((res) => {
       console.log(res);
-      return this.receivedData = res;
+      this.receivedData = res;
+      return this.receivedData;
     });
      
   }
   ngOnInit() {
     this.getReviews();
+    this.buildForm();
   }
 
 
@@ -56,6 +66,37 @@ export class ReviewsComponent implements OnInit {
       });
   }
 
-  
+  saveReview() {
+    this.review = this.loginForm.value;
+      this.reviewsService.postReview(this.review).subscribe((res) => {
+        console.log(res);
+        this.reviews.push(res);
+      });
+      this.showForm = false;
+      return this.review;
+  }
 
+  private buildForm() {
+    this.loginForm = this.fb.group({
+      author: ["", Validators.required],
+      review: ["", Validators.required]
+    });
+  }
+
+  deleteReview(id: number) {
+    this.reviewsService.deleteReview(id).subscribe();
+    for(let review of this.reviews) {
+      if(review.id == id) {
+        this.reviews.splice(id);
+      }
+    }
+    this.showForm = true;
+  }
+
+  editReview(id: number, review: Review) {
+    this.reviewsService.putReview(id, review).subscribe();
+    this.showForm = true;
+  }
+
+  
 }

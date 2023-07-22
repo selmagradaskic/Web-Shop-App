@@ -1,7 +1,5 @@
 <h1>Reviews</h1>
 
-
-
 <div>
   <h2>Received Product:</h2>
   <p>Title: {{ receivedData.title }}</p>
@@ -13,8 +11,32 @@
 </div>
   
 
+<h3>Your review</h3>
 
+<form [formGroup]="loginForm" (ngModel)="review" *ngIf="showForm">
+  <div class="form-group">
+    <div>
+    <label for="login-v1">Author</label>
+  </div>
+    <textarea class="form-control1" formControlName="author" placeholder="Enter your name.."></textarea>
+  </div>
+
+  <div class="form-group">
+  <div>
+    <label for="password-v1">Review</label>
+  </div>
+    <textarea class="form-control2" formControlName="review" matInput cols="30" rows="10" placeholder="Describe your past experience"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success" (click)="saveReview()">Submit</button>
+</form>
+
+<div>
+  <h3>Other reviews</h3>
 <ul *ngFor="let review of reviews">
     <li>{{review.author}}</li>
     <li>{{review.review}}</li>
+    <button [disabled]="showForm" (click)="editReview(review.id, review)">Edit</button>
+    <button (click)="deleteReview(review.id)">Delete</button>
 </ul>
+</div>
