@@ -9,3 +9,30 @@
 textarea {
     resize: none;
   }
+
+  .rating-list i {
+    float: right;
+    color: #e9f187;
+    padding: 10px 5px;
+  
+  }
+  
+  .rating-list i:hover,
+  .rating-list i:hover ~ i {
+    color: #ffd700;
+  }
+  
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+  }
+
+  .rating-list i.selected {
+    color: #ffd700;
+}
+
+.done-rating-list {
+    color: #ffd700;
+    display: inline-block;
+    list-style: none;
+}

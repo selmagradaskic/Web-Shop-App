@@ -27,8 +27,22 @@
   </div>
     <textarea class="form-control2" formControlName="review" matInput cols="30" rows="10" placeholder="Describe your past experience"></textarea>
   </div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+        <ul class="list-inline rating-list" *ngFor="let star of reviewStars; let i= index" style="display: inline-block"> 
+            <i (click)="countStar(star)" id="{{'starId'+i}}" [ngClass]="{'selected': (star <= selectedValue) }" 
+             (mouseover)="addClass(star)" (mouseout)="removeClass(star)"> ★
+            </i>
+        </ul>
+    </div>
+  </div>
+  
+  
 
-  <button type="submit" class="btn btn-success" (click)="saveReview()">Submit</button>
+  <button *ngIf="showSubmit" type="submit" class="btn btn-success" (click)="saveReview()">Submit</button>
+
+ <button *ngIf="showUpdate" (click)="editReview(loginForm.value)">Update</button>
 </form>
 
 <div>
@@ -36,7 +50,11 @@
 <ul *ngFor="let review of reviews">
     <li>{{review.author}}</li>
     <li>{{review.review}}</li>
-    <button [disabled]="showForm" (click)="editReview(review.id, review)">Edit</button>
+   
+    <ng-container *ngFor="let _ of [].constructor(review.stars)">
+      <i class="done-rating-list">★</i>  
+   </ng-container>
+    <button [disabled]="showForm" (click)="showMyForm()">Edit</button>
     <button (click)="deleteReview(review.id)">Delete</button>
 </ul>
 </div>

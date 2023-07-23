@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.sql.Date
+import java.time.LocalDate
+import java.util.*
 
 
 @RestController
@@ -26,19 +29,28 @@ public class ReviewController (@Autowired val reviewRepository: ReviewRepository
 
   @GetMapping("/{id}")
   fun getReviewById(@PathVariable("id") reviewId: Long): ResponseEntity<Review> {
-    val user = reviewRepository.findById(reviewId).orElse(null)
-    return if (user != null) ResponseEntity(user, HttpStatus.OK)
+    val review = reviewRepository.findById(reviewId).orElse(null)
+    return if (review != null) ResponseEntity(review, HttpStatus.OK)
     else ResponseEntity(HttpStatus.NOT_FOUND)
   }
 
   @PutMapping("/{id}")
-  fun updateReviewById(@PathVariable("id") reviewId: Long, @RequestBody review: Review): ResponseEntity<Review> {
-
-    val existingReview = reviewRepository.findById(reviewId).orElse(null) ?: return ResponseEntity(HttpStatus.NOT_FOUND)
-
-    val updatedReview = existingReview.copy(author = review.author, review = review.review)
-    reviewRepository.save(updatedReview)
-    return ResponseEntity(updatedReview, HttpStatus.OK)
+  fun updateReviewById(@PathVariable("id") reviewId: Long, @RequestBody updatedReview: Review): ResponseEntity<Review> {
+    val oldReview = reviewRepository.findById(reviewId).orElse(null)
+    return if (reviewRepository.existsById(reviewId)) {
+      val review = Review(
+        id = reviewId,
+        author = updatedReview.author,
+        review = updatedReview.review,
+        stars = updatedReview.stars,
+        createdDate = oldReview.createdDate,
+        updatedDate = Date.valueOf(LocalDate.now())
+      )
+      val updatedReview = this.reviewRepository.save(review)
+      ResponseEntity(updatedReview, HttpStatus.CREATED)
+    } else {
+      ResponseEntity(HttpStatus.NOT_FOUND)
+    }
   }
 
   @DeleteMapping("/{id}")
