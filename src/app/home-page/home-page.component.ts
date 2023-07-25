@@ -54,7 +54,7 @@ export class HomePageComponent implements OnInit {
     });
     }
 
-    selectedProducts(product: Product) {
+    selectedProducts(product: any) {
        this.homePageReviewsService.sendData(product);
     }
 

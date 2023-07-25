@@ -35,14 +35,14 @@ public class ReviewController (@Autowired val reviewRepository: ReviewRepository
   }
 
   @PutMapping("/{id}")
-  fun updateReviewById(@PathVariable("id") reviewId: Long, @RequestBody updatedReview: Review): ResponseEntity<Review> {
+  fun updateReviewById(@PathVariable("id") reviewId: Long, @RequestBody review: Review): ResponseEntity<Review> {
     val oldReview = reviewRepository.findById(reviewId).orElse(null)
     return if (reviewRepository.existsById(reviewId)) {
       val review = Review(
         id = reviewId,
-        author = updatedReview.author,
-        review = updatedReview.review,
-        stars = updatedReview.stars,
+        author = review.author,
+        review = review.review,
+        stars = review.stars,
         createdDate = oldReview.createdDate,
         updatedDate = Date.valueOf(LocalDate.now())
       )

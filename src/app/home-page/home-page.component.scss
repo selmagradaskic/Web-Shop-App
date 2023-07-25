@@ -6,22 +6,38 @@
 }
 
 .container {
-    display: block;
-    column-count: 2;
+    background-color: rgb(178, 178, 178);
+    //display: block;
+  //  column-count: 2;
     width: 100%;
    // column-gap: 20%;
-    padding: 100px;
-  border: 3px solid rgb(168, 171, 124);
+  //  padding: 100px;
+  border: 3px solid rgb(8, 8, 8);
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
     
 }
 
-.oneProduct {
-    width: 41%;
+img {
+    width: 500px;
+    height: 300px;
+    border-radius: 8%;
+   // border: 5px solid #090808;
 }
 
-img {
+img:hover {
+    border: 5px solid #d74040;
+}
+
+.description {
+    height: 2ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+li {
     width: 100%;
-    border-radius: 10%;
-    border: 5px solid #555;
-    border-color: rgb(123, 122, 124);
+    padding: 10px;
 }

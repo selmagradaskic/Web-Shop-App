@@ -30,7 +30,7 @@ export class ReviewsService {
       return this.http.get<Review>(`http://localhost:8080/reviews/${id}`);
     }
 
-    public putReview(id: number, review: Review): Observable<Review> {
+    public putReview(id: number, review: Review) {
       return this.http.put<Review>(`http://localhost:8080/reviews/${id}`, review);
     }
 

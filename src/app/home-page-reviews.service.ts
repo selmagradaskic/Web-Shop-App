@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Product } from './home-page/Product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomePageReviewsService {
-   dataSubject = new Subject<any>();
+   dataSubject = new Subject<Product>();
+   data = this.dataSubject.asObservable();
 
   sendData(data: any) {
-    this.dataSubject.next(data);
+    return this.dataSubject.next(data);
   }
 
-  getData() {
-    return this.dataSubject.asObservable();
-  }
+ /*  getData() {
+    return this.dataSubject;
+  } */
   
 }

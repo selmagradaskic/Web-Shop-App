@@ -13,7 +13,6 @@ textarea {
   .rating-list i {
     float: right;
     color: #e9f187;
-    padding: 10px 5px;
   
   }
   
@@ -33,6 +32,16 @@ textarea {
 
 .done-rating-list {
     color: #ffd700;
+    display: inline-block;
+    list-style: none;
+    font-size: 30px;
+}
+
+.starSize {
+    font-size: 40px;
+}
+  
+.list-inline rating-list {
     display: inline-block;
     list-style: none;
 }

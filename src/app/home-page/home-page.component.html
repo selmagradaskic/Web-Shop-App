@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fasthand&family=Pacifico&display=swap" rel="stylesheet">
-      <title>Web App</title>
-    </head>
-    <div class="title">
-<h1>Welcome to Shop&Go Web Shop</h1>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fasthand&family=Pacifico&display=swap"
+    rel="stylesheet">
+  <title>Web App</title>
+</head>
+<div class="title">
+  <h1>Welcome to Shop&Go Web Shop</h1>
 </div>
 
 <body>
 
-<app-best-sellers [products]="products"></app-best-sellers>
-<div class="container">
-  <div class="oneProduct">
-<ul *ngFor="let product of products" >
-    <li routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="selectedProducts(product)">
- <h2> {{product.title}} </h2>
-  <img src="{{product.thumbnail}}" alt="Picture" class="images">
- <p class="description"> {{product.description}} </p>
- <h3>{{product.price}}$</h3>
- <button>Buy</button>
- <button routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="selectedProducts(product)">Open</button>
-    </li>
-</ul>
+  <app-best-sellers [products]="products"></app-best-sellers>
+  <div class="container">
+    <div class="oneProduct">
+      <ul *ngFor="let product of products" class="products">
+        <li routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page"
+          (click)="selectedProducts(product)">
+          <h2> {{product.title}} </h2>
+          <img src="{{product.thumbnail}}" alt="Picture" class="images">
+          <p class="description"> {{product.description}} </p>
+          <h3>{{product.price}}$</h3>
+          <button>Buy</button>
+          <button routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page"
+            (click)="selectedProducts(product)">Open</button>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 </body>
+
 </html>
