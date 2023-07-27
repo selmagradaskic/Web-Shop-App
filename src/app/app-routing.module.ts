@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { ReviewsComponent } from './reviews/reviews.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AppComponent } from './app.component';
 
 
-const routes: Routes = [{ path: '', component: HomePageComponent },
+const routes: Routes = [{ path: '', component: AppComponent },
 { path: 'reviews-component', component: ReviewsComponent }
 ]; 
 

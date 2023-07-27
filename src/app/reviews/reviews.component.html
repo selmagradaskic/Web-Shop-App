@@ -1,58 +1,71 @@
-<h1>Reviews</h1>
-<div *ngIf="selectedProducts">
-
-  
-</div>
-
-<h3>Your review</h3>
-
-
-<form [formGroup]="loginForm" (ngModel)="review" *ngIf="showForm">
-  <div class="form-group">
-    <div>
-      <label for="login-v1">Author</label>
-    </div>
-    <textarea class="form-control1" formControlName="author" placeholder="Enter your name.."></textarea>
+<div [hidden]="hiddenOnce">
+  <div>
+  <h1>Details</h1>
+  <div class="receivedProduct">
+    <h2>{{receivedData.title}}</h2>
+    <div class="images">
+    <ul *ngFor="let image of receivedData.images">
+      <li><img src="{{image}}"></li>
+    </ul>
+  </div>
+  <h3>{{receivedData.description}}</h3>
+  </div>
   </div>
 
-  <div class="form-group">
-    <div>
-      <label for="password-v1">Review</label>
+  <form [formGroup]="loginForm" (ngModel)="review" *ngIf="showForm">
+    <h2>Your review</h2>
+    <div class="form-group">
     </div>
-    <textarea class="form-control2" formControlName="review" matInput cols="30" rows="10"
-      placeholder="Describe your past experience..">
+    <div class="form-group">
+      <div>
+        <label for="login-v1">Author</label>
+      </div>
+      <textarea class="form-control1" formControlName="author" placeholder="Enter your name.."></textarea>
+    </div>
+
+    <div class="form-group">
+      <div>
+        <label for="password-v1">Review</label>
+      </div>
+      <textarea class="form-control2" formControlName="review" matInput cols="30" rows="10"
+        placeholder="Describe your past experience..">
     </textarea>
-  </div>
+    </div>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <ul class="list-inline rating-list" *ngFor="let star of reviewStars; let i= index">
-        <i class="starSize" (click)="countStar(star)" id="{{'starId'+i}}" [ngClass]="{'selected': (star <= selectedValue) }"
-          (mouseover)="addClass(star)" (mouseout)="removeClass(star)"> ★
-        </i>
-      </ul>
+    <div class="row">
+      <div class="col-sm-12">
+        <ul class="list-inline rating-list" *ngFor="let star of reviewStars; let i= index">
+          <i class="starSize" (click)="countStar(star)" id="{{'starId'+i}}"
+            [ngClass]="{'selected': (star <= selectedValue) }" (mouseover)="addClass(star)"
+            (mouseout)="removeClass(star)"> ★
+          </i>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <button *ngIf="showSubmit" type="submit" class="btn btn-success" (click)="saveReview()">Submit</button>
+
+    <button *ngIf="showUpdate" (click)="editReview()">Update</button>
+  </form>
+
+  <div [hidden]="hidden">
+    <ul *ngFor="let review of specificReviews">
+      <h2>Reviews</h2>
+      <li>{{review.author}}</li>
+      <li>{{review.review}}</li>
+
+      <ng-container *ngFor="let _ of [].constructor(review.stars)">
+        <i class="done-rating-list">★</i>
+      </ng-container>
+      <div>
+        <button [disabled]="showForm" (click)="showMyForm()">Edit</button>
+        <button (click)="deleteReview(review.id)">Delete</button>
+      </div>
+    </ul>
+    <div [hidden]="specificReviews.length != 0">
+      <h2>No reviews yet!</h2>
     </div>
   </div>
-
-
-
-  <button *ngIf="showSubmit" type="submit" class="btn btn-success" (click)="saveReview()">Submit</button>
-
-  <button *ngIf="showUpdate" (click)="editReview()">Update</button>
-</form>
-
-<div>
-  <h3>Other reviews</h3>
-  <ul *ngFor="let review of reviews">
-    <li>{{review.author}}</li>
-    <li>{{review.review}}</li>
-
-    <ng-container *ngFor="let _ of [].constructor(review.stars)">
-      <i class="done-rating-list">★</i>
-    </ng-container>
-    <div>
-      <button [disabled]="showForm" (click)="showMyForm()">Edit</button>
-      <button (click)="deleteReview(review.id)">Delete</button>
-    </div>
-  </ul>
 </div>

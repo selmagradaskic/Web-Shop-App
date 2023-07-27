@@ -18,19 +18,18 @@
   <div class="container">
     <div class="oneProduct">
       <ul *ngFor="let product of products" class="products">
-        <li routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page"
-          (click)="selectedProducts(product)">
+        <li (click)="selectedProducts(product)">
           <h2> {{product.title}} </h2>
           <img src="{{product.thumbnail}}" alt="Picture" class="images">
           <p class="description"> {{product.description}} </p>
           <h3>{{product.price}}$</h3>
           <button>Buy</button>
-          <button routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page"
-            (click)="selectedProducts(product)">Open</button>
+          <button (click)="selectedProducts(product)">Open</button>
         </li>
       </ul>
     </div>
   </div>
-</body>
+<app-reviews [products]="products"> </app-reviews>
+ </body>
 
 </html>

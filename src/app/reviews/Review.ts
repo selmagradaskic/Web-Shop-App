@@ -3,6 +3,7 @@ export class Review {
     author: string;
     review: string;
     stars: number;
+    product: number;
     createdDate: Date;
     updatedDate: Date;
 }

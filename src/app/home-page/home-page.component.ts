@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HomePageService } from './home-page-service';
 import { Product } from './Product';
 import { HomePageReviewsService } from '../home-page-reviews.service';
@@ -23,6 +23,9 @@ export class HomePageComponent implements OnInit {
         thumbnail: '',
         images: []
       };
+      
+      @Output() selectedProduct = new EventEmitter();
+      @Input() hidden:boolean = false;
     
       constructor(
         private homePageService: HomePageService,

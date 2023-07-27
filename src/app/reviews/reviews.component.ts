@@ -25,7 +25,7 @@ export class ReviewsComponent implements OnInit {
     thumbnail: '',
     images: []
   };
-    
+    hiddenOnce = true;
 
 
 
@@ -39,73 +39,70 @@ export class ReviewsComponent implements OnInit {
   showSubmit = true;
   reviewStars: number[] = [1, 2, 3, 4, 5];
   selectedValue: number;
-  subscription: Subscription;
   stars: number[] = [];
- /*  title = "";
-  description: string;
-  image: string;
-  receivedDataArguments: string[] = []; */
-  selectedProducts = [];
+  @Input() products: Product[]
+  hidden: boolean = true;
+  specificReviews: Review[] = [];
 
   constructor(
     private reviewsService: ReviewsService,
     private homePageReviewsService: HomePageReviewsService,
     private fb: FormBuilder
   ) {
- 
   }
   
   ngOnInit() {
-    this.homePageReviewsService.data.subscribe((res) => {
-    return this.receive(res);
-    })
-  
     this.getReviews();
-    this.buildForm();
+    
   }
-
- 
-   receive(receivedData: Product) {
-   /* this.receivedData = receivedData;
-   console.log(this.receivedData); */
-   this.selectedProducts.push(receivedData);
-   console.log(this.selectedProducts, 'SELECTED');
-   return this.selectedProducts;
-  }
-
 
   getReviews() {
     this.reviewsService.getReviews()
       .subscribe((res) => {
-        this.reviews = res;
+       this.reviews = res;
         for (let review of res) {
           this.stars.push(review.stars);
-        }
-        return this.reviews;
+        }    
       });
+      this.homePageReviewsService.getData().subscribe((res) => {
+        this.hiddenOnce = false;
+        this.specificReviews = [];
+        this.receivedData = res;
+        for(let rev of this.reviews) {
+          if(this.receivedData.id == rev.product) {
+            this.specificReviews.push(rev);
+              this.hidden = false;
+          }
+        }
+      });
+      this.buildForm();
+      return this.specificReviews;
   }
 
   saveReview() {
     this.review = this.loginForm.value;
-    this.reviewsService.postReview(this.review).subscribe((res) => {
-      this.reviews.push(res);
-    });
+    this.loginForm.value.product = this.receivedData.id;
+    this.reviewsService.postReview(this.review).subscribe();
+    this.specificReviews.push(this.review);
+    this.getReviews();
     this.showForm = false;
-    return this.review;
+    return this.specificReviews;
   }
 
   private buildForm() {
     this.loginForm = this.fb.group({
       author: ["", Validators.required],
       review: ["", Validators.required],
-      stars: ["", Validators.required]
+      stars: ["", Validators.required],
+      product: ["", Validators.required]
     });
   }
 
   deleteReview(id: number) {
-    this.reviewsService.deleteReview(id).subscribe(() => {
-      this.getReviews();
-    });
+    this.reviewsService.deleteReview(id).subscribe();
+      let index = this.specificReviews.findIndex(x => x.id ===id);
+      this.specificReviews.splice(index);
+    this.getReviews();
     this.showForm = true;
   }
 
@@ -119,16 +116,15 @@ export class ReviewsComponent implements OnInit {
   editReview() {
     let id: number;
     this.review = this.loginForm.value;
-    for(let rev of this.reviews) {
+    this.loginForm.value.product = this.receivedData.id;
+    for(let rev of this.specificReviews) {
       if(this.review.author == rev.author) {
          id = rev.id;
-          this.reviewsService.putReview(id, this.review).subscribe(() => {
-          this.getReviews();
-         });
+         this.reviewsService.putReview(id, this.review).subscribe();
       }
     }
+    this.getReviews();
     this.showForm = false;
-    return this.review;
   }
 
   getReview(id: number) {
@@ -155,5 +151,6 @@ export class ReviewsComponent implements OnInit {
       document.getElementById(ab).classList.remove("selected");
     }
   }
+  
 
 }

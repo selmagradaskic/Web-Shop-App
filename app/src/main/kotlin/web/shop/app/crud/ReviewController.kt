@@ -13,7 +13,6 @@ import java.util.*
 @RequestMapping("/reviews")
 @CrossOrigin(exposedHeaders= ["Access-Control-Allow-Origin"])
 public class ReviewController (@Autowired val reviewRepository: ReviewRepository) {
-  // standard constructors
 
   @GetMapping("")
   fun getAllReviews(): MutableIterable<Review?> {
@@ -43,6 +42,7 @@ public class ReviewController (@Autowired val reviewRepository: ReviewRepository
         author = review.author,
         review = review.review,
         stars = review.stars,
+        product = oldReview.product,
         createdDate = oldReview.createdDate,
         updatedDate = Date.valueOf(LocalDate.now())
       )

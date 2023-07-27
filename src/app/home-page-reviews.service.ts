@@ -13,8 +13,8 @@ export class HomePageReviewsService {
     return this.dataSubject.next(data);
   }
 
- /*  getData() {
+  getData() {
     return this.dataSubject;
-  } */
+  }
   
 }

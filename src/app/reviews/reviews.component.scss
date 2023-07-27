@@ -12,8 +12,7 @@ textarea {
 
   .rating-list i {
     float: right;
-    color: #e9f187;
-  
+    color: #edf2bb;
   }
   
   .rating-list i:hover,
@@ -44,4 +43,14 @@ textarea {
 .list-inline rating-list {
     display: inline-block;
     list-style: none;
+}
+
+.images {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+}
+
+.images img {
+  width: 300px;
 }
