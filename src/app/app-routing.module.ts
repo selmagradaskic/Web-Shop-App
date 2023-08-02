@@ -6,7 +6,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AppComponent } from './app.component';
 
 
-const routes: Routes = [{ path: '', component: AppComponent },
+const routes: Routes = [{ path: '', component: HomePageComponent },
 { path: 'reviews-component', component: ReviewsComponent }
 ]; 
 

@@ -1,20 +1,21 @@
 <div [hidden]="hiddenOnce">
   <div>
-  <h1>Details</h1>
-  <div class="receivedProduct">
-    <h2>{{receivedData.title}}</h2>
-    <div class="images">
-    <ul *ngFor="let image of receivedData.images">
-      <li><img src="{{image}}"></li>
-    </ul>
-  </div>
-  <h3>{{receivedData.description}}</h3>
-  </div>
+    <h1>Details</h1>
+    <div class="receivedProduct">
+      <h2>{{receivedData.title}}</h2>
+      <div class="images">
+        <ul *ngFor="let image of receivedData.images">
+          <li><img src="{{image}}"></li>
+        </ul>
+      </div>
+      <h3>{{receivedData.description}}</h3>
+    </div>
   </div>
 
   <form [formGroup]="loginForm" (ngModel)="review" *ngIf="showForm">
     <h2>Your review</h2>
     <div class="form-group">
+      
     </div>
     <div class="form-group">
       <div>
@@ -51,8 +52,8 @@
   </form>
 
   <div [hidden]="hidden">
+    <h2>Reviews</h2>
     <ul *ngFor="let review of specificReviews">
-      <h2>Reviews</h2>
       <li>{{review.author}}</li>
       <li>{{review.review}}</li>
 
@@ -64,8 +65,8 @@
         <button (click)="deleteReview(review.id)">Delete</button>
       </div>
     </ul>
-    <div [hidden]="specificReviews.length != 0">
+  </div>
+  <div [hidden]="specificReviews.length != 0">
       <h2>No reviews yet!</h2>
     </div>
-  </div>
 </div>

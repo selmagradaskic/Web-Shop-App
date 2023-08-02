@@ -43,6 +43,7 @@ export class ReviewsComponent implements OnInit {
   @Input() products: Product[]
   hidden: boolean = true;
   specificReviews: Review[] = [];
+  @Input() product: Product;
 
   constructor(
     private reviewsService: ReviewsService,
@@ -91,6 +92,7 @@ export class ReviewsComponent implements OnInit {
 
   private buildForm() {
     this.loginForm = this.fb.group({
+      id: [ Number ],
       author: ["", Validators.required],
       review: ["", Validators.required],
       stars: ["", Validators.required],
@@ -110,21 +112,23 @@ export class ReviewsComponent implements OnInit {
     this.showForm = true;
     this.showSubmit = false;
     this.showUpdate = true;
-
   }
 
   editReview() {
-    let id: number;
-    this.review = this.loginForm.value;
     this.loginForm.value.product = this.receivedData.id;
-    for(let rev of this.specificReviews) {
-      if(this.review.author == rev.author) {
-         id = rev.id;
-         this.reviewsService.putReview(id, this.review).subscribe();
-      }
-    }
-    this.getReviews();
+    this.review = this.loginForm.value;
+/*
+    this.review.author = this.loginForm.value.author;
+    this.review.stars = this.loginForm.value.stars;
+    let newReview = this.specificReviews.find() */
+    let review2 = this.getReviews().find(x => x.author == this.review.author);
+    console.log(review2);
+      let id: number;
+      id = review2.id;
+      this.reviewsService.putReview(id, review2).subscribe();
+      this.getReviews();
     this.showForm = false;
+    
   }
 
   getReview(id: number) {

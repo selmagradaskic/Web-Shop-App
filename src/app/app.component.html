@@ -2,13 +2,12 @@
  <nav>
    <ul class="topnav">
      <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home Page</a></li>
-<!--      <li><a routerLink="/reviews-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a></li>
- -->   </ul>
+ </ul>
  </nav>
 </div>
- <!-- The routed views render in the <router-outlet>-->
-<!-- <router-outlet></router-outlet>  -->
+  <app-home-page [hidden]="hidden"></app-home-page> 
+<router-outlet></router-outlet>
 
  
- <app-home-page></app-home-page> 
+ 
 
