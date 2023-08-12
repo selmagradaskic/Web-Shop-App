@@ -23,9 +23,9 @@ export class HomePageComponent implements OnInit {
         thumbnail: '',
         images: []
       };
-      
+
       @Output() selectedProduct = new EventEmitter();
-      @Input() hidden = false;
+      
     
       constructor(
         private homePageService: HomePageService,
@@ -59,7 +59,6 @@ export class HomePageComponent implements OnInit {
 
     selectedProducts(product: any) {
        this.homePageReviewsService.sendData(product);
-       this.hidden = true;
     }
 
  

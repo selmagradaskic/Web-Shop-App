@@ -1,11 +1,16 @@
  <div class="header">
  <nav>
    <ul class="topnav">
-     <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home Page</a></li>
+    <li>
+      <button routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home Page</button> 
+     </li>
  </ul>
  </nav>
 </div>
-  <app-home-page [hidden]="hidden"></app-home-page> 
+
+<div>
+<app-reviews> </app-reviews> 
+</div>
 <router-outlet></router-outlet>
 
  
