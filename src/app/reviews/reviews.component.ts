@@ -54,6 +54,7 @@ export class ReviewsComponent implements OnInit {
   
   ngOnInit() {
     this.getReviews();
+    this.buildForm();
     
   }
 
@@ -76,7 +77,6 @@ export class ReviewsComponent implements OnInit {
           }
         }
       });
-      this.buildForm();
       return this.specificReviews;
   }
 
@@ -87,12 +87,12 @@ export class ReviewsComponent implements OnInit {
     this.specificReviews.push(this.review);
     this.getReviews();
     this.showForm = false;
-    return this.specificReviews;
+   // return this.specificReviews;
   }
 
   private buildForm() {
     this.loginForm = this.fb.group({
-      id: [ Number ],
+      id: [""],
       author: ["", Validators.required],
       review: ["", Validators.required],
       stars: ["", Validators.required],
@@ -104,8 +104,8 @@ export class ReviewsComponent implements OnInit {
     this.reviewsService.deleteReview(id).subscribe();
       let index = this.specificReviews.findIndex(x => x.id ===id);
       this.specificReviews.splice(index);
-    this.getReviews();
     this.showForm = true;
+    this.getReviews();
   }
 
   showMyForm() {
@@ -115,18 +115,18 @@ export class ReviewsComponent implements OnInit {
   }
 
   editReview() {
-    this.loginForm.value.product = this.receivedData.id;
+    let ids = [];
+    for(let rev of this.reviews) {
+      ids.push(rev.id);
+    }
+    this.loginForm.value.product = this.receivedData.id;  
+    this.loginForm.value.id = Math.max(...ids) + 1;
     this.review = this.loginForm.value;
-/*
-    this.review.author = this.loginForm.value.author;
-    this.review.stars = this.loginForm.value.stars;
-    let newReview = this.specificReviews.find() */
-    let review2 = this.getReviews().find(x => x.author == this.review.author);
-    console.log(review2);
-      let id: number;
-      id = review2.id;
-      this.reviewsService.putReview(id, review2).subscribe();
-      this.getReviews();
+    this.reviewsService.putReview(this.review.id, this.review).subscribe();
+    let index = this.specificReviews.findIndex(x => x.id ===this.review.id);
+      this.specificReviews.splice(index);
+      this.specificReviews.push(this.review);
+    this.getReviews();
     this.showForm = false;
     
   }

@@ -7,15 +7,11 @@
 
 .container {
     background-color: rgb(178, 178, 178);
-    //display: block;
-  //  column-count: 2;
     width: 100%;
-   // column-gap: 20%;
-  //  padding: 100px;
-  border: 3px solid rgb(8, 8, 8);
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
+    border: 3px solid rgb(8, 8, 8);
+    columns: 2;
+   -webkit-columns: 2;
+   -moz-columns: 2;
     
 }
 
@@ -26,9 +22,6 @@ img {
    // border: 5px solid #090808;
 }
 
-img:hover {
-    border: 5px solid #d74040;
-}
 
 .description {
     height: 2ch;
@@ -38,6 +31,10 @@ img:hover {
 }
 
 li {
-    width: 100%;
-    padding: 10px;
+    width: 80%;
+    padding: 25px 0px 25px 25px;
+}
+
+li:hover {
+    box-shadow: 0 5px 35px 0px rgba(24, 161, 211, 0.727);
 }

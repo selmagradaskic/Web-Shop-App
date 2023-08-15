@@ -1,5 +1,7 @@
 .bestSellers {
 text-align: center;
+box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.727);
+padding-bottom: 40px;
 }
 
 body {
@@ -24,7 +26,6 @@ img {
 }
 .image-container {
   width: 100%;
-  // height: 300px;
   clear: both;
   position: relative;
   -webkit-transition: left 2s;
@@ -32,7 +33,6 @@ img {
   -o-transition: left 2s;
   transition: left 2s;
   display: flex;
-  //flex-direction: row;
   column-gap: 6px;
 }
 .slide {
