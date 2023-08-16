@@ -1,66 +1,27 @@
-.bestSellers {
-text-align: center;
-box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.727);
-padding-bottom: 40px;
-}
 
-body {
-  font-family: 'Pacifico', cursive;
-}
-
-img {
-  border: 5px solid #555;
-}
-
-.slider {
-  width: 550px;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  text-align: center;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 100px;
-}
-.image-container {
-  width: 100%;
-  clear: both;
-  position: relative;
-  -webkit-transition: left 2s;
-  -moz-transition: left 2s;
-  -o-transition: left 2s;
-  transition: left 2s;
-  display: flex;
-  column-gap: 6px;
-}
-.slide {
-  float: left;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-}
-#slide-1:target ~ .image-container {
-  left: -3px;
-}
-#slide-2:target ~ .image-container {
-  left: -550px;
-}
-#slide-3:target ~ .image-container {
-  left: -1090px;
-}
-.buttons {
-  position: relative;
-}
-.buttons a {
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-  border-radius: 50px;
-  background-color: lightgreen;
-}
-
-ul {
-  padding: 2px;
-}
+ @keyframes slidy {
+  0% { left: 0%; }
+  20% { left: 0%; }
+  25% { left: -100%; }
+  45% { left: -100%; }
+  50% { left: -200%; }
+  70% { left: -200%; }
+  75% { left: -300%; }
+  95% { left: -300%; }
+  100% { left: -400%; }
+  }
+  
+  body { margin: 0; } 
+  div#slider { overflow: hidden; }
+  div#slider figure img { width: 120%; float: left; }
+  div#slider figure { 
+    position: relative;
+    width: 300%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    animation: 15s slidy infinite; 
+    display: flex;
+    justify-content: space-around;
+  }
+  

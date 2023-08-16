@@ -61,4 +61,16 @@ public class ReviewController (@Autowired val reviewRepository: ReviewRepository
     reviewRepository.deleteById(reviewId)
     return ResponseEntity(HttpStatus.NO_CONTENT)
   }
+
+  @GetMapping("/product/{productId}")
+  fun getReviewsByProduct(@PathVariable("productId") productId: Int): ResponseEntity<List<Review>> {
+    val reviews = getAllReviews()
+    var reviewsByProduct = mutableListOf<Review>()
+    for (review in reviews) {
+     if (review != null && review.product == productId) {
+       reviewsByProduct.add(review)
+     }
+    }
+    return ResponseEntity(reviewsByProduct, HttpStatus.OK)
+  }
 }
