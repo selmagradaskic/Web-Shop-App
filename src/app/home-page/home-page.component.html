@@ -1,19 +1,4 @@
-
-
-<!-- <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fasthand&family=Pacifico&display=swap"
-    rel="stylesheet">
-  <title>Web App</title>
-</head>
-<div>
-  <div class="title">
-  <h1>Welcome to Shop&Go Web Shop</h1>
-  </div>
-
-  <div> -->
-
+  <div>
   <app-best-sellers [products]="products"></app-best-sellers>
   <div class="container">
     <div class="oneProduct">
@@ -25,12 +10,8 @@
           <img src="{{product.thumbnail}}" alt="Picture" class="images">
           <p class="description"> {{product.description}} </p>
           <h3>{{product.price}}$</h3>
-          <button>Buy</button>
-          <button (click)="selectedProducts(product)">Open</button>
         </li>
       </ul>
     </div>
   </div>
- 
-<!--  </div>
-</div> -->
+</div>

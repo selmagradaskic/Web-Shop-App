@@ -9,7 +9,9 @@ import { HomePageReviewsService } from '../home-page-reviews.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-    
+
+  @Input() showReviews = true;
+
       product: Product = {
         id: 0,
         title: '',
@@ -25,7 +27,7 @@ export class HomePageComponent implements OnInit {
       };
 
       @Output() selectedProduct = new EventEmitter();
-      
+
     
       constructor(
         private homePageService: HomePageService,
@@ -41,6 +43,7 @@ export class HomePageComponent implements OnInit {
     
     ngOnInit() {
     this.fetchData();
+    this.showReviews = false;
     }
     
     fetchData() {
@@ -59,6 +62,7 @@ export class HomePageComponent implements OnInit {
 
     selectedProducts(product: any) {
        this.homePageReviewsService.sendData(product);
+       this.showReviews = true;
     }
 
  

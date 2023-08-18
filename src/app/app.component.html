@@ -10,22 +10,18 @@
   <nav>
     <ul class="topnav">
       <li>
-        <button routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home
+        <button (click)="goTo()" class="btn" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home
           Page</button>
       </li>
     </ul>
   </nav>
-    <ul class="title">
-      <li>
-      <div>
+    <div class="title">
         <h1>Welcome to Shop&Go Web Shop</h1>
-        </div>
-      </li>
-      <li><img src="../assets/images/laptop.png" class="logo"></li>
-    </ul>
+    </div>
+      
 </div>
 
 <div>
-  <app-reviews> </app-reviews>
+  <app-reviews [hidden]="!showReviews"> </app-reviews>
 </div>
 <router-outlet></router-outlet>

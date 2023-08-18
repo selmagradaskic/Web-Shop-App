@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ReviewsService } from './reviews.service';
 import { Review } from './Review';
 import { Product } from '../home-page/Product';
@@ -25,7 +25,7 @@ export class ReviewsComponent implements OnInit {
     thumbnail: '',
     images: []
   };
-    hiddenOnce = true;
+  hiddenOnce = true;
 
 
 
@@ -44,6 +44,7 @@ export class ReviewsComponent implements OnInit {
   hidden: boolean = true;
   specificReviews: Review[] = [];
   @Input() product: Product;
+
 
   constructor(
     private reviewsService: ReviewsService,
@@ -105,7 +106,7 @@ export class ReviewsComponent implements OnInit {
       let index = this.specificReviews.findIndex(x => x.id ===id);
       this.specificReviews.splice(index);
     this.showForm = true;
-    this.getReviews();
+   // this.getReviews();
   }
 
   showMyForm() {
