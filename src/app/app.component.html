@@ -10,7 +10,7 @@
   <nav>
     <ul class="topnav">
       <li>
-        <button (click)="goTo()" class="btn" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home
+        <button (click)="show()" class="btn" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home
           Page</button>
       </li>
     </ul>
@@ -22,6 +22,6 @@
 </div>
 
 <div>
-  <app-reviews [hidden]="!showReviews"> </app-reviews>
+  <app-reviews [hidden]="showReviews"></app-reviews>
 </div>
 <router-outlet></router-outlet>

@@ -11,13 +11,15 @@ import { ReviewsService } from './reviews/reviews.service';
 import { HomePageReviewsService } from './home-page-reviews.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BuyFormComponent } from './reviews/buy-form/buy-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BestSellersComponent,
     HomePageComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    BuyFormComponent
   ],
   imports: [
     BrowserModule,

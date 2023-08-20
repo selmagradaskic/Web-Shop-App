@@ -11,7 +11,7 @@
       <h3>{{receivedData.description}}</h3>
     </div>
     <div class="buyButton">
-      <button>Buy!</button>
+      <button (click)="buy()">Buy!</button>
     </div>
   </div>
 
@@ -72,4 +72,8 @@
   <div [hidden]="specificReviews.length != 0">
       <h2>No reviews yet!</h2>
     </div>
+</div>
+
+<div>
+  <app-buy-form *ngIf="showBuyForm"></app-buy-form>
 </div>

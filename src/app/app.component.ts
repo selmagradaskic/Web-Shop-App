@@ -1,4 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,17 @@ import { Component, Input, Output } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-@Output() showReviews: boolean = true;
 
-goTo() {
-  this.showReviews = false;
+  showReviews: boolean = false;
+
+  show() {
+  this.showReviews = true
+  this.reloadPage();
+  }
+
+  reloadPage() {
+    setTimeout(()=>{
+      window.location.reload();
+    }, 100);
 }
 }

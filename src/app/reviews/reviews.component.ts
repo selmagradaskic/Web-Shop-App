@@ -1,16 +1,16 @@
-import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ReviewsService } from './reviews.service';
 import { Review } from './Review';
 import { Product } from '../home-page/Product';
 import { HomePageReviewsService } from '../home-page-reviews.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.scss']
 })
 export class ReviewsComponent implements OnInit {
+
 
   receivedData: Product = {
     id: 0,
@@ -25,8 +25,9 @@ export class ReviewsComponent implements OnInit {
     thumbnail: '',
     images: []
   };
+  
   hiddenOnce = true;
-
+  showBuyForm = false;
 
 
   reviews: Review[] = [];
@@ -45,6 +46,8 @@ export class ReviewsComponent implements OnInit {
   specificReviews: Review[] = [];
   @Input() product: Product;
 
+  
+
 
   constructor(
     private reviewsService: ReviewsService,
@@ -56,8 +59,9 @@ export class ReviewsComponent implements OnInit {
   ngOnInit() {
     this.getReviews();
     this.buildForm();
-    
   }
+
+
 
   getReviews() {
     this.reviewsService.getReviews()
@@ -88,7 +92,6 @@ export class ReviewsComponent implements OnInit {
     this.specificReviews.push(this.review);
     this.getReviews();
     this.showForm = false;
-   // return this.specificReviews;
   }
 
   private buildForm() {
@@ -106,7 +109,7 @@ export class ReviewsComponent implements OnInit {
       let index = this.specificReviews.findIndex(x => x.id ===id);
       this.specificReviews.splice(index);
     this.showForm = true;
-   // this.getReviews();
+    this.getReviews();
   }
 
   showMyForm() {
@@ -155,6 +158,11 @@ export class ReviewsComponent implements OnInit {
       ab = "starId" + i;
       document.getElementById(ab).classList.remove("selected");
     }
+  }
+  
+  buy() {
+    this.showBuyForm = true;
+    this.hiddenOnce = true;
   }
   
 
