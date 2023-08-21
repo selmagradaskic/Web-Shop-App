@@ -12,7 +12,7 @@ import java.util.*
 @RestController
 @RequestMapping("/reviews")
 @CrossOrigin(exposedHeaders= ["Access-Control-Allow-Origin"])
-public class ReviewController (@Autowired val reviewRepository: ReviewRepository) {
+class ReviewController (@Autowired val reviewRepository: ReviewRepository) {
 
   @GetMapping("")
   fun getAllReviews(): MutableIterable<Review?> {

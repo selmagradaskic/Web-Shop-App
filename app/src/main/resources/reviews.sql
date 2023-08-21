@@ -3,7 +3,7 @@ id INT PRIMARY KEY NOT NULL,
 author VARCHAR(50),
 review VARCHAR(100),
 stars INT,
-product_id INT,
+product INT,
 created_date DATE NOT NULL DEFAULT CURRENT_DATE,
 updated_date DATE NOT NULL DEFAULT CURRENT_DATE
 );

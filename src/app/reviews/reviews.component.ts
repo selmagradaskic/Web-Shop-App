@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class ReviewsComponent implements OnInit {
 
-
+@Output()
   receivedData: Product = {
     id: 0,
     title: '',
@@ -25,6 +25,8 @@ export class ReviewsComponent implements OnInit {
     thumbnail: '',
     images: []
   };
+
+  @Input() closeBuy = true;
   
   hiddenOnce = true;
   showBuyForm = false;
@@ -165,5 +167,9 @@ export class ReviewsComponent implements OnInit {
     this.hiddenOnce = true;
   }
   
+  closeBuyForm() {
+    this.hiddenOnce = false;
+    this.showBuyForm = false;
+  }
 
 }

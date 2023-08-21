@@ -14,11 +14,10 @@
       <button (click)="buy()">Buy!</button>
     </div>
   </div>
-
   <form [formGroup]="loginForm" (ngModel)="review" *ngIf="showForm">
     <h2>Your review</h2>
     <div class="form-group">
-      
+
     </div>
     <div class="form-group">
       <div>
@@ -70,10 +69,11 @@
     </ul>
   </div>
   <div [hidden]="specificReviews.length != 0">
-      <h2>No reviews yet!</h2>
-    </div>
+    <h2>No reviews yet!</h2>
+  </div>
 </div>
 
 <div>
-  <app-buy-form *ngIf="showBuyForm"></app-buy-form>
+  <div><button *ngIf="showBuyForm" (click)="closeBuyForm()">x</button></div>
+  <app-buy-form *ngIf="showBuyForm" [receivedData]="receivedData" ></app-buy-form>
 </div>

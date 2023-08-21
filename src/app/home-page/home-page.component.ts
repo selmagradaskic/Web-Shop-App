@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomePageService } from './home-page-service';
 import { Product } from './Product';
 import { HomePageReviewsService } from '../home-page-reviews.service';
@@ -11,9 +11,6 @@ import { HomePageReviewsService } from '../home-page-reviews.service';
 export class HomePageComponent implements OnInit {
   
   
-
- 
-
       product: Product = {
         id: 0,
         title: '',
@@ -28,7 +25,7 @@ export class HomePageComponent implements OnInit {
         images: []
       };
 
-      @Output() selectedProduct = new EventEmitter();
+     // @Output() selectedProduct = new EventEmitter();
     
       constructor(
         private homePageService: HomePageService,

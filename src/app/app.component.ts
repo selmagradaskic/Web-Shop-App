@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+
   showReviews: boolean = false;
+  @Output()
+  closeBuy = false;
 
   show() {
   this.showReviews = true
@@ -20,4 +23,6 @@ export class AppComponent {
       window.location.reload();
     }, 100);
 }
+
+
 }
