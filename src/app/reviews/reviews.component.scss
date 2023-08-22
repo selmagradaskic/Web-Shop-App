@@ -128,3 +128,35 @@ body {
         transform: translateY(0px);
     }
 }
+
+@media (max-width: 800px) {
+  body {
+    width: 100%;
+  }
+
+  .images img {
+    width: 100%;
+  }
+  .buyButton button {
+    width: 20%;
+    height: 20%;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px)  {
+  body {
+    width: 100%;
+  }
+
+  .images img {
+    width: 100%;
+  }
+  .buyButton {
+    width: 100%;
+  }
+
+  .buyButton button {
+    width: 20%;
+    height: 20%;
+  }
+}

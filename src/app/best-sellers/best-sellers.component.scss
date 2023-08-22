@@ -27,7 +27,6 @@ font-family: 'Permanent Marker', cursive;
   div#slider figure { 
     position: relative;
     width: 300%;
-    //margin-left: 100px;
     left: 0;
     text-align: left;
     animation: 10s slidy infinite; 
@@ -42,7 +41,21 @@ font-family: 'Permanent Marker', cursive;
     border-image: repeating-linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89)) 20;
   }
 
-/* ul li{
-  display: flex;
-  flex-direction: row;
-} */
+  @media (max-width: 800px) {
+    body {
+      width: 100%;
+    }
+  
+    img {
+      width: 100%;
+    }
+    div#slider figure img { width: 100%; float: left; }
+
+    .bestSellers {
+      font-size: small;
+    }
+
+    .bestProduct {
+      font-size: small;
+    }
+  }
