@@ -4,8 +4,10 @@
   display: block;
   color: #171313;
   text-align: center;
-  padding: 14px 16px;
+  //padding: 14px 16px;
   text-decoration: none;
+  font-family: 'Permanent Marker', cursive;
+  width: 7%;
 }
 
 .btn:link,
@@ -73,50 +75,79 @@
     }
 }
 
-.logo {
-width: 200px;
-}
 
 .title {
- // text-align: center;
   color: rgb(36, 36, 32);
   font-size: larger;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Permanent Marker', cursive;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
 
-    .images img {
-      width: 100%;
+    .topnav button {
+        width: 12%;
     }
 
-    .btn {
-        width: 20%;
-        height: 20%;
+    .title {
+        font-size: small;
+    }
+
+    .topnav {
+        display: inline;
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 768px) {
+
+    .topnav button {
+        width: 8%;
     }
 
     .title {
         width: 100%;
-        font-size: small;
+        font-size: smaller;
+    }
+    .topnav {
+        display: inline;
     }
   }
 
-  @media (min-width: 801px) and (max-width: 1000px) {
-
-    img {
-      width: 60%;
+  @media (min-width: 769px) and (max-width: 1024px) {
+  
+    .topnav button {
+        width: 8%;
     }
 
-    .btn {
-        width: 20%;
-    height: 20%;
+      .title {
+        width: 100%;
+        font-size: medium;
+      }
+      .topnav {
+        display: inline;
     }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1200px) {
+  
+    .title {
+        width: 100%;
+        font-size: medium;
+    }
+    .topnav {
+        display: inline;
+    }
+}
+
+@media (min-width: 1201px){
 
     .title {
         width: 100%;
         font-size: medium;
     }
-  }
+    .topnav {
+        display: inline;
+    }
+}

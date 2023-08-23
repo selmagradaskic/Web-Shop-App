@@ -1,8 +1,10 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fasthand&family=Pacifico&display=swap"
-    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <title>Web App</title>
 </head>
 <div>
@@ -10,16 +12,16 @@
   <nav>
     <ul class="topnav">
       <li>
-        <button (click)="show()" class="btn" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home
-          Page</button>
+        <button (click)="show()" class="btn" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" aria-checked="true">Home</button>
       </li>
+      
     </ul>
   </nav>
-    <div class="title">
-        <h1>Welcome to Shop&Go Web Shop</h1>
-    </div>
-      
+  <div class="title">
+    <h1>Shop&Go Web Shop</h1>
 </div>
+</div>
+
 <div>
   <app-reviews [hidden]="showReviews" [closeBuy]="closeBuy"></app-reviews>
 </div>

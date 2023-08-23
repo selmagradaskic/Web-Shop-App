@@ -59,9 +59,7 @@ img {
   box-shadow: 0 5px 35px 0px rgba(95, 247, 255, 0.727);
 }
 
-body {
-  width: 100%;
-}
+
 
 .buyButton {
   display: flex;
@@ -129,34 +127,88 @@ body {
     }
 }
 
-@media (max-width: 800px) {
-  body {
-    width: 100%;
-  }
-
+@media (max-width: 600px) {
+  
   .images img {
     width: 100%;
   }
   .buyButton button {
     width: 20%;
     height: 20%;
+  }
+
+  .reviews {
+    font-size: small;
+  }
+
+  .starSize, .done-rating-list {
+    font-size: 20px;
+  }
+
+  ul .list-inline {
+    font-size: 1.5rem;
   }
 }
 
-@media (min-width: 801px) and (max-width: 1000px)  {
-  body {
-    width: 100%;
-  }
+@media (min-width: 601px) and (max-width: 768)  {
 
   .images img {
     width: 100%;
   }
-  .buyButton {
-    width: 100%;
-  }
-
+  
   .buyButton button {
     width: 20%;
     height: 20%;
+  }
+
+  .reviews {
+    font-size: medium;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+  .images img {
+    width: 100%;
+  }
+  
+  .buyButton button {
+    width: 20%;
+    height: 20%;
+  }
+  .reviews {
+    font-size:large;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  
+  .images img {
+    width: 100%;
+  }
+  
+  .buyButton button {
+    width: 20%;
+    height: 20%;
+  }
+
+  .reviews {
+    font-size: larger;
+  }
+}
+
+@media (min-width: 1201px) {
+  
+  .images img {
+    width: 100%;
+  }
+  
+  .buyButton button {
+    width: 20%;
+    height: 20%;
+  }
+
+  .reviews {
+    font-size: x-large;
   }
 }

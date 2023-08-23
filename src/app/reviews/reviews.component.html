@@ -1,4 +1,4 @@
-<div [hidden]="hiddenOnce">
+<div [hidden]="hiddenOnce" class="reviews">
   <div>
     <h1>Details</h1>
     <div class="receivedProduct">
@@ -75,5 +75,5 @@
 
 <div>
   <div><button *ngIf="showBuyForm" (click)="closeBuyForm()">x</button></div>
-  <app-buy-form *ngIf="showBuyForm" [receivedData]="receivedData" ></app-buy-form>
+  <app-buy-form *ngIf="showBuyForm" [receivedData]="receivedData"></app-buy-form>
 </div>
