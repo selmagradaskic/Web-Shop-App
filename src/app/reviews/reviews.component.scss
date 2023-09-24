@@ -46,9 +46,8 @@ textarea {
 }
 
 .images {
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .images img {

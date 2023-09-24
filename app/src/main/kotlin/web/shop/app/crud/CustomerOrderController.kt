@@ -38,6 +38,7 @@ class CustomerOrderController(@Autowired val customerOrderRepository: CustomerOr
         id = customerOrderId,
         product = customerOrder.product,
         customerName = customerOrder.customerName,
+        email = customerOrder.email,
         address = customerOrder.address,
         city = customerOrder.city,
         countryState = customerOrder.countryState,

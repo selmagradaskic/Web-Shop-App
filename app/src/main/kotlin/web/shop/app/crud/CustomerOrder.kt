@@ -24,6 +24,9 @@ data class CustomerOrder (
   @Column("customer_name")
   val customerName: String,
 
+  @Column("email")
+  val email: String,
+
   @Column("address")
   val address: String,
 

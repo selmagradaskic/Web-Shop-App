@@ -7,13 +7,13 @@
 <div class="row" *ngIf="showBuyForm">
     <div class="col-75">
         <div class="container">
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" id="myForm">
                 <div class="row">
                     <div class="col-50">
                         <h3>Billing Address</h3>
                         <label for="fname"><i class="fa fa-user"></i> Full Name</label>
                         <input type="text" id="fname" name="firstname" placeholder="John M. Doe"
-                            formControlName="customerName">
+                            formControlName="customerName" required="required">
                         <label for="email"><i class="fa fa-envelope"></i> Email</label>
                         <input type="text" id="email" name="email" placeholder="john@example.com"
                             formControlName="email">
@@ -73,5 +73,6 @@
     </div>
 </div>
 <div *ngIf="submittedMessage">
-    <h1>Order Submitted</h1>
+    <h3>Order Submitted  <span>&#10003;</span> </h3>
+    
 </div>

@@ -1,17 +1,18 @@
-  <div>
+<div>
   <app-best-sellers [products]="products"></app-best-sellers>
+  <div class="allContainers">
   <div class="container">
     <div class="oneProduct">
       <ul *ngFor="let product of products" class="products">
-        <li (click)="selectedProducts(product)" routerLink="/reviews"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page">
+        <li (click)="selectedProducts(product)" routerLink="/reviews" routerLinkActive="active"
+          ariaCurrentWhenActive="page">
           <h2> {{product.title}} </h2>
           <img src="{{product.thumbnail}}" alt="Picture" class="images">
-          <p class="description"> {{product.description}} </p>
+          <h3 class="description"> {{product.description}} </h3>
           <h3>{{product.price}}$</h3>
         </li>
       </ul>
     </div>
+  </div>
   </div>
 </div>

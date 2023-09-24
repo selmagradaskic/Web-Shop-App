@@ -23,7 +23,7 @@ font-family: 'Permanent Marker', cursive;
   
   body { margin: 0; } 
   div#slider { overflow: hidden; }
-  div#slider figure img { width: 150%; float: left; }
+  div#slider figure img { width: 120%; float: left; }
   div#slider figure { 
     position: relative;
     width: 300%;
@@ -41,7 +41,7 @@ font-family: 'Permanent Marker', cursive;
     border-image: repeating-linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89)) 20;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
     body {
       width: 100%;
     }

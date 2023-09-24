@@ -2,12 +2,13 @@
 .topnav button {
   float: left;
   display: block;
-  color: #171313;
+  color: #4b1e1e;
   text-align: center;
-  //padding: 14px 16px;
+  padding: 10px;
   text-decoration: none;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Montserrat', sans-serif;
   width: 7%;
+  height: 38px;
 }
 
 .btn:link,
@@ -79,16 +80,17 @@
 .title {
   color: rgb(36, 36, 32);
   font-size: larger;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Satisfy', cursive;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
+
 @media (max-width: 600px) {
 
     .topnav button {
-        width: 12%;
+        width: 18%;
     }
 
     .title {
@@ -103,7 +105,7 @@
   @media (min-width: 601px) and (max-width: 768px) {
 
     .topnav button {
-        width: 8%;
+        width: 9%;
     }
 
     .title {

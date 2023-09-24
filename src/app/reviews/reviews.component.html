@@ -1,21 +1,20 @@
 <div [hidden]="hiddenOnce" class="reviews">
   <div>
-    <h1>Details</h1>
     <div class="receivedProduct">
-      <h2>{{receivedData.title}}</h2>
+      <h3>{{receivedData.title}}</h3>
       <div class="images">
         <ul *ngFor="let image of receivedData.images">
           <li><img src="{{image}}"></li>
         </ul>
       </div>
-      <h3>{{receivedData.description}}</h3>
+      <h4>{{receivedData.description}}</h4>
     </div>
     <div class="buyButton">
       <button (click)="buy()">Buy!</button>
     </div>
   </div>
   <form [formGroup]="loginForm" (ngModel)="review" *ngIf="showForm">
-    <h2>Your review</h2>
+    <h3>Your review</h3>
     <div class="form-group">
 
     </div>
@@ -31,7 +30,7 @@
         <label for="password-v1">Review</label>
       </div>
       <textarea class="form-control2" formControlName="review" matInput cols="30" rows="10"
-        placeholder="Describe your past experience..">
+        placeholder="Describe your past experience.." required="required">
     </textarea>
     </div>
 
@@ -54,7 +53,7 @@
   </form>
 
   <div [hidden]="hidden">
-    <h2>Reviews</h2>
+    <h3>Reviews</h3>
     <ul *ngFor="let review of specificReviews">
       <li>{{review.author}}</li>
       <li>{{review.review}}</li>
@@ -64,16 +63,16 @@
       </ng-container>
       <div>
         <button [disabled]="showForm" (click)="showMyForm()">Edit</button>
-        <button (click)="deleteReview(review.id)">Delete</button>
+        <button [disabled]="showForm"  (click)="deleteReview(review.id)">Delete</button>
       </div>
     </ul>
   </div>
   <div [hidden]="specificReviews.length != 0">
-    <h2>No reviews yet!</h2>
+    <h4>No reviews yet!</h4>
   </div>
 </div>
 
 <div>
-  <div><button *ngIf="showBuyForm" (click)="closeBuyForm()">x</button></div>
+  <div><button *ngIf="showBuyForm" (click)="closeBuyForm()">Close</button></div>
   <app-buy-form *ngIf="showBuyForm" [receivedData]="receivedData"></app-buy-form>
 </div>
