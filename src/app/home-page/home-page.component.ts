@@ -49,6 +49,7 @@ export class HomePageComponent implements OnInit {
         for(let i = 0; i < this.products.length; i++)  {
           let producstNonGrata = ['perfume', 'serum', 'key', 'lamp', 'oil', 'cream', 'masoor', 'macaroni', 'plant', 'bird'];
           const checkForProduct = producstNonGrata.some(el => this.products[i].title.toLowerCase().includes(el));
+          
           if(checkForProduct) {
             this.products.splice(i);
           }

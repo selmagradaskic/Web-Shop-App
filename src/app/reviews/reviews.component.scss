@@ -66,8 +66,8 @@ img {
 }
 
 .buyButton button {
-  width: 200px;
-  height: 70px;
+  width: 100px;
+  height: 30px;
 }
 
 .buyButton button:link,
@@ -112,6 +112,10 @@ img {
 .buyButton button-animated {
     animation: moveInBottom 5s ease-out;
     animation-fill-mode: backwards;
+}
+
+h1, h2, h3, h4, #author, #review {
+  font-family: 'Shadows Into Light', cursive;
 }
 
 @keyframes moveInBottom {
@@ -170,11 +174,7 @@ img {
   .images img {
     width: 100%;
   }
-  
-  .buyButton button {
-    width: 20%;
-    height: 20%;
-  }
+
   .reviews {
     font-size:large;
   }
@@ -184,11 +184,6 @@ img {
   
   .images img {
     width: 100%;
-  }
-  
-  .buyButton button {
-    width: 20%;
-    height: 20%;
   }
 
   .reviews {
@@ -200,11 +195,6 @@ img {
   
   .images img {
     width: 100%;
-  }
-  
-  .buyButton button {
-    width: 20%;
-    height: 20%;
   }
 
   .reviews {

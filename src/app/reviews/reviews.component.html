@@ -14,20 +14,20 @@
     </div>
   </div>
   <form [formGroup]="loginForm" (ngModel)="review" *ngIf="showForm">
-    <h3>Your review</h3>
+    <h3><i class="done-rating-list">⭐</i>Your review<i class="done-rating-list">⭐</i></h3>
     <div class="form-group">
 
     </div>
     <div class="form-group">
       <div>
-        <label for="login-v1">Author</label>
+        <label for="login-v1" id="author">Author</label>
       </div>
       <textarea class="form-control1" formControlName="author" placeholder="Enter your name.."></textarea>
     </div>
 
     <div class="form-group">
       <div>
-        <label for="password-v1">Review</label>
+        <label for="password-v1" id="review">Review</label>
       </div>
       <textarea class="form-control2" formControlName="review" matInput cols="30" rows="10"
         placeholder="Describe your past experience.." required="required">
@@ -59,7 +59,7 @@
       <li>{{review.review}}</li>
 
       <ng-container *ngFor="let _ of [].constructor(review.stars)">
-        <i class="done-rating-list">★</i>
+        <i class="done-rating-list">⭐</i>
       </ng-container>
       <div>
         <button [disabled]="showForm" (click)="showMyForm()">Edit</button>

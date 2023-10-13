@@ -6,7 +6,7 @@
       <ul *ngFor="let product of products" class="products">
         <li (click)="selectedProducts(product)" routerLink="/reviews" routerLinkActive="active"
           ariaCurrentWhenActive="page">
-          <h2> {{product.title}} </h2>
+          <h1> {{product.title}} </h1>
           <img src="{{product.thumbnail}}" alt="Picture" class="images">
           <h3 class="description"> {{product.description}} </h3>
           <h3>{{product.price}}$</h3>

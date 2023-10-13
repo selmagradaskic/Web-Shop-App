@@ -9,15 +9,21 @@ font-family: 'Permanent Marker', cursive;
   font-family: 'Indie Flower', cursive;
 }
 
+li {   
+  display: flex;
+  flex-direction:column-reverse;
+  align-items: center;
+}
+
  @keyframes slidy {
   0% { left: -20%; }
-  20% { left: 0%; }
-  25% { left: -150%; }
-  45% { left: -140%; }
-  50% { left: -260%; }
-  70% { left: -240%; }
-  75% { left: -300%; }
-  95% { left: -350%; }
+  20% { left: 5%; }
+  25% { left: 0%; }
+  45% { left: -135%; }
+  50% { left: -140%; }
+  70% { left: -235%; }
+  75% { left: -240%; }
+  95% { left: -300%; }
   100% { left: -400%; }
   }
   
@@ -40,6 +46,11 @@ font-family: 'Permanent Marker', cursive;
     padding: 10px;
     border-image: repeating-linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89)) 20;
   }
+
+  h1, h2, h3, h4 {
+    font-family: 'Shadows Into Light', cursive;
+  }
+  
 
   @media (max-width: 600px) {
     body {

@@ -65,7 +65,7 @@ class ReviewController (@Autowired val reviewRepository: ReviewRepository) {
   @GetMapping("/product/{productId}")
   fun getReviewsByProduct(@PathVariable("productId") productId: Int): ResponseEntity<List<Review>> {
     val reviews = getAllReviews()
-    var reviewsByProduct = mutableListOf<Review>()
+    val reviewsByProduct = mutableListOf<Review>()
     for (review in reviews) {
      if (review != null && review.product == productId) {
        reviewsByProduct.add(review)
