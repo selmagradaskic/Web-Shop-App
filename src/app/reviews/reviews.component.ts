@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ReviewsService } from './reviews.service';
 import { Review } from './Review';
 import { Product } from '../home-page/Product';
 import { HomePageReviewsService } from '../home-page-reviews.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
@@ -47,6 +48,7 @@ export class ReviewsComponent implements OnInit {
   hidden: boolean = true;
   specificReviews: Review[] = [];
   @Input() product: Product;
+  lastReview = false;
 
   
 
@@ -62,8 +64,6 @@ export class ReviewsComponent implements OnInit {
     this.getReviews();
     this.buildForm();
   }
-
-
 
   getReviews() {
     this.reviewsService.getReviews()
@@ -92,8 +92,8 @@ export class ReviewsComponent implements OnInit {
     this.loginForm.value.product = this.receivedData.id;
     this.reviewsService.postReview(this.review).subscribe();
     this.specificReviews.push(this.review);
-    this.getReviews();
     this.showForm = false;
+    return this.getReviews();
   }
 
   private buildForm() {
@@ -106,10 +106,22 @@ export class ReviewsComponent implements OnInit {
     });
   }
 
-  deleteReview(id: number) {
-    this.reviewsService.deleteReview(id).subscribe();
-      let index = this.specificReviews.findIndex(x => x.id ===id);
-      this.specificReviews.splice(index);
+  getMaxId() {
+    let ids = [];
+    for(let rev of this.reviews) {
+      ids.push(rev.id);
+    }
+    let index = Math.max(...ids);
+    return index;
+  }
+
+  deleteReview() {
+    let index = this.getMaxId();
+    this.specificReviews.pop();
+    this.reviewsService.deleteReview(index).subscribe();
+    this.loginForm.value.author = '';
+    this.loginForm.value.review = '';
+    this.buildForm();
     this.showForm = true;
     this.getReviews();
   }
@@ -121,15 +133,11 @@ export class ReviewsComponent implements OnInit {
   }
 
   editReview() {
-    let ids = [];
-    for(let rev of this.reviews) {
-      ids.push(rev.id);
-    }
     this.loginForm.value.product = this.receivedData.id;  
-    this.loginForm.value.id = Math.max(...ids) + 1;
+    this.loginForm.value.id = this.getMaxId() + 1;
     this.review = this.loginForm.value;
     this.reviewsService.putReview(this.review.id, this.review).subscribe();
-    let index = this.specificReviews.findIndex(x => x.id ===this.review.id);
+    let index = this.specificReviews.findIndex(x => x.id === this.review.id);
       this.specificReviews.splice(index);
       this.specificReviews.push(this.review);
     this.getReviews();

@@ -69,7 +69,7 @@ class CustomerOrderController(@Autowired val customerOrderRepository: CustomerOr
   @GetMapping("/product/{productId}")
   fun getOrdersByProduct(@PathVariable("productId") productId: Int): ResponseEntity<List<CustomerOrder>> {
     val orders = getAllOrders()
-    var ordersByProduct = mutableListOf<CustomerOrder>()
+    val ordersByProduct = mutableListOf<CustomerOrder>()
     for (order in orders) {
       if (order != null && order.product == productId) {
         ordersByProduct.add(order)
